@@ -4,12 +4,10 @@ library("DBI")
 setwd("./")
 
 # input the read count table
-count_tab_all <- read.table("summary_star_readcount",head=T,row.names =1)
+count_tab <- read.table("summary_star_readcount",head=T,row.names =1)
 
 # drop low express genes and low coverage samples
-#cd <- clean.counts(count_tab, min.lib.size = 500, min.reads = 10, min.detected = 5)
-#> dim(cd)
-#[1] 9021   48
+cd <- clean.counts(count_tab, min.lib.size = 500, min.reads = 10, min.detected = 5)
 
 l2cols <- c(rep("coral4",12),  rep("mediumpurple2",9))
 sg <- factor(l2cols,levels = c("red","purple"))
