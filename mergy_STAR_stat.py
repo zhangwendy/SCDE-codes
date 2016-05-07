@@ -53,6 +53,9 @@ def merge(input_dir,outfile,library):
 
 
 def main(argv):
+    """
+    python mergy_STAR_stat.py -i ./ -o read_count_matrix -l R
+    """
 
    description = "A script to merge mappable reads to each gene in each samples, and generate a matrix table for SCDE"
 
