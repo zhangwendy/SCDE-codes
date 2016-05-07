@@ -8,7 +8,11 @@ import os
 from collections import defaultdict
 from argparse import ArgumentParser
 
-def merge(input_dir,outfile,library): 
+def merge(input_dir,outfile,library):     
+    """
+    To extract the read map to each gene in each sample 
+    in input_dir
+    """
 
     gene_dict = defaultdict(dict)
     samples = defaultdict(dict)
