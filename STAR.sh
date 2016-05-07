@@ -3,8 +3,7 @@
 #$ -j y
 #$ -l h_vmem=40G
 #$ -l h_rt=120:00:00
-#$ -A baas_wu
-#$ -M yuezhang@stanford.edu
+
 date
 hostname
 module load STAR/2.5.1b
