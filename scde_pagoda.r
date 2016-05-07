@@ -1,11 +1,10 @@
 library("scde")
 library("DBI")
 
-setwd("/srv/gsfs0/BaaS/Labs/wu/Ioannis/SC-RNAseq/SCDE/two_group/1_4")
+setwd("./")
 
 # input the read count table
-count_tab_all <- read.table("../summary_star_stat_readcount_1_4",head=T,row.names =1)
-count_tab <- count_tab_all[,-which(names(count_tab_all) %in% c("X44","X45","X46","X47","X48"))]
+count_tab <- read.table("summary_star_readcount",head=T,row.names =1)
 
 # drop low express genes and low coverage samples
 cd <- clean.counts(count_tab, min.lib.size = 500, min.reads = 10, min.detected = 5)
