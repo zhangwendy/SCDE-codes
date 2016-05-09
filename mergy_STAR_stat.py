@@ -27,7 +27,7 @@ def merge(input_dir,outfile,library):
     files = glob.glob(input_dir+"*ReadsPerGene.out.tab")
 
     for file in files:
-        name = re.search(r'([^\/]+)_ReadsPerGene.out.tab',file);
+        name = re.search(r'([^\/]+)ReadsPerGene.out.tab',file);
         sample = name.group(1)
         samples[sample] = 1
         with open(file, "r") as f:
