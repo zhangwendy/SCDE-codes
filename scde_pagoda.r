@@ -44,6 +44,12 @@ rids <- names(ids); names(rids) <- ids
 go.env <- eapply(org.Hs.egGO2ALLEGS, function(x) as.character(na.omit(rids[x])))
 go.env <- go.env[unlist(lapply(go.env, length))>5]
 
+# alternative choice of some sepecific go terms
+# goterm <- read.table("interested_goterm")  # the intersted_goterm is a file containg interested go term list
+# goterm <- t(goterm)
+# goterms = goterm[1,]
+# go.env <- lapply(mget(goterms, org.Hs.egGO2ALLEGS), function(x) as.character(na.omit(rids[x])))
+
 # add description to GO term
 library(GO.db)
 desc <- unlist(lapply(mget(names(go.env), GOTERM, ifnotfound = NA), function(x) if(is.logical(x)) { return("") } else { slot(x, "Term")}))
