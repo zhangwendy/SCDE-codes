@@ -12,8 +12,14 @@ cd <- clean.counts(count_tab, min.lib.size = 500, min.reads = 10, min.detected =
 #[1] 9021   48
 
 # get color group flag  
-#            red       green       skyblue       purple
+# the easist way to add color to cell if they are put in right order, e.g
 l2cols <- c(rep("coral4",12),  rep("mediumpurple2",7))
+
+# the another way to add color to cell by pattern matching on their name. e.g
+# get color group flag  (IL5361-N716-N521_AMAC	IL5361-N718-N520_BAMC, IL5361-N718-N120_BAMC2, IL5361-N718-N510_PAMC)
+# x <- gsub("IL.*N.*_(.*)", "\\1", colnames(cd)) 
+# l2cols <- c("coral4", "olivedrab3", "skyblue2", "slateblue3")[as.integer(factor(x, levels = c("AMAC", "BMAC0", "BMAC2", "PMAC")))]
+
 
 # building error model
 knn <- knn.error.models(cd, k = ncol(cd)/2, n.cores = 20, min.count.threshold = 2, min.nonfailed = 5, max.model.plots = 5, save.model.plots = TRUE, verbose = 1)  # turn on verbosity
